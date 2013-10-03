@@ -3,8 +3,6 @@
 #  Description: Script to check if exists one file and ctime
 #  usage: scritp.py file [-m minutes -h hours -d days]
 #
-# Con valor "old" dara critico cuando el mtime sea más viejo del valor de rango(cw)
-# con valor "new" dara critico si el mtime es menor a los parametros de rango
 
 
 import os
@@ -39,9 +37,7 @@ def ficheroexiste(pathfile):
 def mtime(filename):
     return os.stat(filename).st_mtime
 def timeolder(timesec):
-    #x = (time.mktime(time.localtime) - timesec)
     x = time.mktime(time.localtime()) - timesec
-    print x
     return x
 parser = OptionParser()
 usage = ""
@@ -69,7 +65,9 @@ if options.file and not options.type:
     else :
         print "CRITICAL: %s NOT FOUND"%file  
         exit(CRIT)
-
+elif not options.file  :
+    help()
+    exit(UKN)
     
 #CASE 2: Test mtime of the file
 
@@ -78,7 +76,6 @@ if options.type and options.critical_value and options.warning_value :
     # getting "timebreak" values
     warnval = timeolder((options.warning_value * 60))
     critval = timeolder((options.critical_value * 60))
-    print "warn: %d crit: %d mtime: %d"%(warnval,critval,mtime(file))
     if lower(options.type) == "old" :
         if mtime(file) <= critval :
 
