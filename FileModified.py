@@ -10,7 +10,7 @@ import sys
 import time
 from string import lower
 from optparse import OptionParser
-
+from sys import exit
 scriptname = sys.argv[0]
 
 #NAGIOS VALUES:
