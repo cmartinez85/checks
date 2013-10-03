@@ -1,4 +1,4 @@
 checks
 ======
 
-nagios checks
+Repository to storage nagios checks
