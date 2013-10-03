@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+# -*- coding: utf-8 -*-
 #  Description: Script to check if exists one file and ctime
 #  usage: scritp.py file [-m minutes -h hours -d days]
 #
