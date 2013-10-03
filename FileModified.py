@@ -3,7 +3,8 @@
 #  Description: Script to check if exists one file and ctime
 #  usage: scritp.py file [-m minutes -h hours -d days]
 #
-
+# Con valor "old" dara critico cuando el mtime sea más viejo del valor de rango(cw)
+# con valor "new" dara critico si el mtime es menor a los parametros de rango 
 
 import os
 import sys
